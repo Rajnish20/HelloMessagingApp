@@ -8,11 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/message")
 public class MessageRestController {
 
-    @Autowired
-    private User user;
-
-    MessageRestController(){
-    }
 
     @GetMapping("/hello")
     public String helloMessage(){
@@ -31,10 +26,12 @@ public class MessageRestController {
 
     @PostMapping("hello")
     public String sayHelloBean(@RequestBody User user){
-        this.user.firstName = user.firstName;
-        this.user.lastName = user.lastName;
-        return "Hello " + user.firstName +" "+user.lastName+" from BridgeLabs";
+        return "Hello " + user.getFirstName() +" "+user.getLastName()+" from BridgeLabs";
+    }
 
+    @PutMapping("/put/hello/{firstName}")
+    public String sayHelloPut(@PathVariable String firstName, @RequestParam String lastName){
+        return "Hello " +firstName+" "+lastName+" from BridgeLabs";
     }
 
 }

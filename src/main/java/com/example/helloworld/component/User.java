@@ -2,16 +2,20 @@ package com.example.helloworld.component;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class User {
-    public String firstName;
-    public String lastName;
+    private String firstName;
+    private String lastName;
 
-    User(){
-
+    public String getFirstName() {
+        return firstName;
     }
-     public User(String firstName, String lastName){
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+    public void setLastName(String lastName) {
         this.lastName = lastName;
-     }
+    }
 }
